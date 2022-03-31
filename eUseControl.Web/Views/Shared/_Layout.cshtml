@@ -1,0 +1,78 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="PC Components">
+    <meta name="keywords" content="Pc, components, accessories, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PC Components</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/font-awesome/css")
+    @Styles.Render("~/bundles/elegant-icons/css")
+    @Styles.Render("~/bundles/nice-select/css")
+    @Styles.Render("~/bundles/jquery-ui/css")
+    @Styles.Render("~/bundles/owl.carousel/css")
+    @Styles.Render("~/bundles/slicknav/css")
+
+
+
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+
+    <!--Main stylesheet-->
+    @Styles.Render("~/bundles/style/css")
+</head>
+
+<body>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        @Html.Partial("_Humberger")
+        <!-- Humberger End -->
+        <!-- Header Section Begin -->
+        <header class="header">
+            @Html.Partial("_Header")
+        </header>
+        <!-- Header Section End -->
+        <!-- Hero Section Begin -->
+        <section class="hero">
+            @Html.Partial("_Hero")
+        </section>
+        <!-- Hero Section End -->
+
+        <content>
+            @RenderBody()
+        </content>
+
+        <!-- Footer Section Begin -->
+        <footer class="footer spad">
+            @Html.Partial("_Footer")
+        </footer>
+        <!-- Footer Section End -->
+        <!--Section for main scripts render-->
+       
+        @*@Scripts.Render("~/bundles/jquery-3.3.1/js")
+        @Scripts.Render("~/bundles/bootstrap/js")
+        @Scripts.Render("~/bundles/jquery.nice-select/js")
+        @Scripts.Render("~/bundles/jquery-ui/js")
+        @Scripts.Render("~/bundles/jquery.slicknav/js")
+        @Scripts.Render("~/bundles/mixitup/js")
+        @Scripts.Render("~/bundles/owl.carousel/js")
+        @Scripts.Render("~/bundles/main/js")*@
+
+        <!--Handler for local scripts-->>
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>
